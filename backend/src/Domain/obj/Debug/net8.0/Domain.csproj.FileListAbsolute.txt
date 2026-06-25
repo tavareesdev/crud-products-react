@@ -1,0 +1,11 @@
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\bin\Debug\net8.0\Domain.deps.json
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\bin\Debug\net8.0\Domain.dll
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\bin\Debug\net8.0\Domain.pdb
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.dll
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\refint\Domain.dll
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\Domain.pdb
+D:\Projetos\CrudProdutos\CrudProdutos\backend\src\Domain\obj\Debug\net8.0\ref\Domain.dll
