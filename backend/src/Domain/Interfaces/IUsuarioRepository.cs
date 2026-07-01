@@ -1,0 +1,14 @@
+using Domain.Entities;
+
+namespace Domain.Interfaces;
+
+public interface IUsuarioRepository
+{
+    Task<Usuario?> ObterPorIdAsync(Guid id, CancellationToken ct = default);
+    Task<IEnumerable<Usuario>> ListarAsync(CancellationToken ct = default);
+    Task AdicionarAsync(Usuario usuario, CancellationToken ct = default);
+    Task AtualizarAsync(Usuario usuario, CancellationToken ct = default);
+    Task RemoverAsync(Usuario usuario, CancellationToken ct = default);
+    Task<bool> ExisteEmailAsync(string email, Guid? ignorarId = null, CancellationToken ct = default);
+    Task<bool> ExisteDocumentoAsync(string documento, Guid? ignorarId = null, CancellationToken ct = default);
+}

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Gq1XpbyVwQ8=",
+  "dgSpecHash": "cxz1yNvfAlI=",
   "success": true,
   "projectFilePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",

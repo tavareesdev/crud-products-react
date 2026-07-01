@@ -1,4 +1,5 @@
 using Application.UseCases.Produtos;
+using Application.UseCases.Usuarios;
 using Domain.Interfaces;
 using Infrastructure.Persistence.Context;
 using Infrastructure.Persistence.Repositories;
@@ -14,6 +15,7 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<AppDbContext>(opt =>
             opt.UseSqlite(config.GetConnectionString("SQLite")));
         services.AddScoped<IProdutoRepository, ProdutoRepository>();
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
@@ -25,6 +27,12 @@ public static class ServiceCollectionExtensions
         services.AddScoped<CriarProdutoUseCase>();
         services.AddScoped<AtualizarProdutoUseCase>();
         services.AddScoped<RemoverProdutoUseCase>();
+        services.AddScoped<ListarUsuariosUseCase>();
+        services.AddScoped<ObterUsuarioUseCase>();
+        services.AddScoped<CriarUsuarioUseCase>();
+        services.AddScoped<AtualizarUsuarioUseCase>();
+        services.AddScoped<RemoverUsuarioUseCase>();
+        services.AddScoped<AtualizarSenhaUseCase>();
         return services;
     }
 }

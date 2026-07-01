@@ -21,7 +21,6 @@ builder.Services.AddApplicationUseCases();
 builder.Services.AddDbContext<AppDbContext>((serviceProvider, options) =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    Console.WriteLine($"🔍 Connection String: {connectionString}");
     options.UseSqlite(connectionString, 
         b => b.MigrationsAssembly("Infrastructure"));
     options.EnableSensitiveDataLogging(); // <-- Mostra dados sensíveis nos logs
@@ -40,20 +39,12 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var connection = db.Database.GetDbConnection();
-    Console.WriteLine($"📁 Banco de dados: {connection.DataSource}");
-    Console.WriteLine($"📁 Diretório atual: {Directory.GetCurrentDirectory()}");
     
-    // Verifica se o banco existe
     var dbPath = connection.DataSource;
-    Console.WriteLine($"📁 Arquivo existe? {File.Exists(dbPath)}");
     
-    Console.WriteLine("🔄 Aplicando migrations...");
     await db.Database.MigrateAsync();
-    Console.WriteLine("✅ Migrations aplicadas!");
     
-    // Lista as tabelas
     var tables = await db.Database.SqlQueryRaw<string>("SELECT name FROM sqlite_master WHERE type='table';").ToListAsync();
-    Console.WriteLine($"📋 Tabelas encontradas: {string.Join(", ", tables)}");
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
@@ -62,5 +53,4 @@ app.UseSwaggerUI();
 app.UseCors("AllowFrontend");
 app.MapControllers();
 
-Console.WriteLine("🚀 Aplicação iniciada!");
 app.Run();

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VqLZlayC0wo=",
+  "dgSpecHash": "B3Y3mzxCCaI=",
   "success": true,
   "projectFilePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
