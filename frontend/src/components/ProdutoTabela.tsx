@@ -1,4 +1,6 @@
 import type { Produto } from "../types/produto";
+import { IconBox, IconEdit, IconTrash } from "./icons";
+import { cores } from "../styles/theme";
 
 interface Props {
   produtos: Produto[];
@@ -10,8 +12,10 @@ export function ProdutoTabela({ produtos, onEditar, onRemover }: Props) {
   if (produtos.length === 0) {
     return (
       <div style={empty}>
-        <div style={{ fontSize:"3rem" }}>📦</div>
-        <p style={{ color:"#94a3b8", margin:"8px 0 0" }}>Nenhum produto cadastrado ainda.</p>
+        <div style={{ display:"flex", justifyContent:"center" }}>
+          <IconBox size={40} color={cores.textoFraco} />
+        </div>
+        <p style={{ color: cores.textoFraco, margin:"12px 0 0" }}>Nenhum produto cadastrado ainda.</p>
       </div>
     );
   }
@@ -58,10 +62,14 @@ export function ProdutoTabela({ produtos, onEditar, onRemover }: Props) {
                 </span>
               </td>
               <td style={{ ...td, whiteSpace:"nowrap" }}>
-                <button onClick={() => onEditar(p)} style={btn} title="Editar">✏️</button>
+                <button onClick={() => onEditar(p)} style={btn} title="Editar">
+                  <IconEdit size={15} color={cores.textoSuave} />
+                </button>
                 <button onClick={() => {
                   if (confirm(`Remover "${p.nome}"?`)) onRemover(p.id);
-                }} style={btn} title="Remover">🗑️</button>
+                }} style={btn} title="Remover">
+                  <IconTrash size={15} color={cores.erro} />
+                </button>
               </td>
             </tr>
           ))}

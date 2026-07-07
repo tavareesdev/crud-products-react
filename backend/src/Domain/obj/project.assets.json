@@ -52,11 +52,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\obj\\",
+      "outputPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

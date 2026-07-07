@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Cn0a5Nn7aM=",
+  "dgSpecHash": "+Xv9h5s6KGk=",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512"
   ],

@@ -24,5 +24,5 @@ export interface AtualizarUsuarioDto {
 export interface AtualizarSenhaDto {
   senhaAtual: string;
   novaSenha: string;
-  confirmarSenha: string;
+  confirmarNovaSenha: string;
 }

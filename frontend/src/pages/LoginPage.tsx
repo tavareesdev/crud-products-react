@@ -1,6 +1,9 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { authService } from "../services/authService";
+import { IconBox, IconEye, IconEyeOff, IconLock, IconMail, IconSpinner } from "../components/icons";
+import { cores, fontStack } from "../styles/theme";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -15,50 +18,31 @@ export function LoginPage() {
 
   // Se já estiver logado, redireciona para home
   useEffect(() => {
-    const token = localStorage.getItem('auth_token');
-    if (token) {
-      navigate('/home');
+    if (authService.estaAutenticado()) {
+      navigate("/home", { replace: true });
     }
   }, [navigate]);
 
-  // Adicionar estilo da animação via style tag
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !senha) {
-      toast.error("Preencha todos os campos!");
+      toast.error("Preencha e-mail e senha.");
       return;
     }
 
     setLoading(true);
-    
     try {
-      // Simulando uma requisição de login
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // const response = await api.login({ email, senha });
-      
-      toast.success("Login realizado com sucesso!");
-      
-      // Redirecionar para home
-      navigate('/home', { replace: true });
-      
-    } catch (error) {
-      toast.error("Erro ao realizar login. Verifique suas credenciais.");
+      const { token, usuario } = await authService.login({ email, senha });
+
+      // Persiste a sessão — é isto que faltava antes: sem o token salvo,
+      // a rota protegida (ProtectedRoute) sempre mandava de volta para o login.
+      authService.salvarSessao(token, usuario);
+
+      toast.success(`Bem-vindo(a), ${usuario.nome.split(" ")[0]}!`);
+      navigate("/home", { replace: true });
+    } catch (error: any) {
+      toast.error(error.message ?? "Não foi possível entrar. Verifique suas credenciais.");
     } finally {
       setLoading(false);
     }
@@ -67,32 +51,35 @@ export function LoginPage() {
   return (
     <div style={page}>
       <Toaster position="top-right" />
-      
+
       <div style={container}>
-        {/* Logo e título */}
         <div style={header}>
-          <div style={logo}>📦</div>
+          <div style={logo}>
+            <IconBox size={26} color={cores.card} />
+          </div>
           <h1 style={titulo}>Gestão de Produtos</h1>
-          <p style={subtitulo}>Faça login para acessar o sistema</p>
+          <p style={subtitulo}>Entre com sua conta para acessar o sistema</p>
         </div>
 
-        {/* Formulário */}
         <form onSubmit={handleSubmit} style={form}>
           <div style={campoGroup}>
             <label style={label}>E-mail</label>
             <div style={inputWrapper}>
-              <span style={inputIcon}>✉️</span>
+              <span style={inputIcon}>
+                <IconMail size={16} color={cores.textoFraco} />
+              </span>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="seu@email.com"
+                autoComplete="email"
                 style={{
                   ...input,
                   ...(inputFocus.email ? inputFocusStyle : {}),
                 }}
-                onFocus={() => setInputFocus(prev => ({ ...prev, email: true }))}
-                onBlur={() => setInputFocus(prev => ({ ...prev, email: false }))}
+                onFocus={() => setInputFocus((prev) => ({ ...prev, email: true }))}
+                onBlur={() => setInputFocus((prev) => ({ ...prev, email: false }))}
                 disabled={loading}
               />
             </div>
@@ -101,26 +88,34 @@ export function LoginPage() {
           <div style={campoGroup}>
             <label style={label}>Senha</label>
             <div style={inputWrapper}>
-              <span style={inputIcon}>🔒</span>
+              <span style={inputIcon}>
+                <IconLock size={16} color={cores.textoFraco} />
+              </span>
               <input
                 type={mostrarSenha ? "text" : "password"}
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
-                placeholder="••••••••"
+                placeholder="Digite sua senha"
+                autoComplete="current-password"
                 style={{
                   ...input,
                   ...(inputFocus.senha ? inputFocusStyle : {}),
                 }}
-                onFocus={() => setInputFocus(prev => ({ ...prev, senha: true }))}
-                onBlur={() => setInputFocus(prev => ({ ...prev, senha: false }))}
+                onFocus={() => setInputFocus((prev) => ({ ...prev, senha: true }))}
+                onBlur={() => setInputFocus((prev) => ({ ...prev, senha: false }))}
                 disabled={loading}
               />
               <button
                 type="button"
                 onClick={() => setMostrarSenha(!mostrarSenha)}
                 style={toggleSenha}
+                aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
               >
-                {mostrarSenha ? "🙈" : "👁️"}
+                {mostrarSenha ? (
+                  <IconEyeOff size={16} color={cores.textoFraco} />
+                ) : (
+                  <IconEye size={16} color={cores.textoFraco} />
+                )}
               </button>
             </div>
           </div>
@@ -130,21 +125,23 @@ export function LoginPage() {
               <input type="checkbox" style={checkbox} />
               Lembrar-me
             </label>
-            <a href="#" style={esqueceuSenha}>Esqueceu a senha?</a>
+            <Link to="/esqueci-senha" style={esqueceuSenha}>
+              Esqueceu a senha?
+            </Link>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             style={{
               ...btnEntrar,
-              opacity: loading ? 0.7 : 1,
+              opacity: loading ? 0.75 : 1,
               cursor: loading ? "not-allowed" : "pointer",
             }}
             disabled={loading}
           >
             {loading ? (
               <>
-                <span style={spinner}></span>
+                <IconSpinner size={16} color={cores.card} />
                 Entrando...
               </>
             ) : (
@@ -153,7 +150,6 @@ export function LoginPage() {
           </button>
         </form>
 
-        {/* Rodapé */}
         <div style={footer}>
           <div style={footerLinks}>
             <a href="#" style={footerLink}>Termos</a>
@@ -171,21 +167,22 @@ export function LoginPage() {
 // Estilos
 const page: React.CSSProperties = {
   minHeight: "100vh",
-  background: "#f8fafc",
+  background: cores.bg,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   padding: "20px",
+  fontFamily: fontStack,
 };
 
 const container: React.CSSProperties = {
-  background: "#ffffff",
-  borderRadius: "20px",
+  background: cores.card,
+  borderRadius: "16px",
   padding: "48px 40px",
   maxWidth: "440px",
   width: "100%",
-  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-  border: "1px solid #e2e8f0",
+  boxShadow: "0 4px 24px rgba(15, 23, 42, 0.06)",
+  border: `1px solid ${cores.border}`,
 };
 
 const header: React.CSSProperties = {
@@ -194,27 +191,34 @@ const header: React.CSSProperties = {
 };
 
 const logo: React.CSSProperties = {
-  fontSize: "3rem",
-  marginBottom: "12px",
+  width: "52px",
+  height: "52px",
+  borderRadius: "14px",
+  background: cores.primaria,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  margin: "0 auto 16px",
 };
 
 const titulo: React.CSSProperties = {
   margin: 0,
-  fontSize: "1.5rem",
-  fontWeight: 800,
-  color: "#0f172a",
+  fontSize: "1.4rem",
+  fontWeight: 700,
+  color: cores.texto,
+  letterSpacing: "-0.01em",
 };
 
 const subtitulo: React.CSSProperties = {
   margin: "8px 0 0",
-  color: "#64748b",
-  fontSize: "0.9rem",
+  color: cores.textoSuave,
+  fontSize: "0.88rem",
 };
 
 const form: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "18px",
 };
 
 const campoGroup: React.CSSProperties = {
@@ -224,9 +228,9 @@ const campoGroup: React.CSSProperties = {
 };
 
 const label: React.CSSProperties = {
-  fontSize: "0.85rem",
+  fontSize: "0.82rem",
   fontWeight: 600,
-  color: "#0f172a",
+  color: cores.texto,
 };
 
 const inputWrapper: React.CSSProperties = {
@@ -238,43 +242,43 @@ const inputWrapper: React.CSSProperties = {
 const inputIcon: React.CSSProperties = {
   position: "absolute",
   left: "12px",
-  fontSize: "1rem",
-  color: "#94a3b8",
+  display: "flex",
+  alignItems: "center",
 };
 
 const input: React.CSSProperties = {
   width: "100%",
-  padding: "12px 12px 12px 40px",
-  borderRadius: "10px",
-  border: "1.5px solid #e2e8f0",
-  fontSize: "0.95rem",
-  background: "#f8fafc",
+  padding: "11px 12px 11px 38px",
+  borderRadius: "8px",
+  border: `1.5px solid ${cores.border}`,
+  fontSize: "0.92rem",
+  background: cores.bg,
   outline: "none",
-  transition: "all 0.2s",
+  transition: "all 0.15s",
+  fontFamily: "inherit",
 };
 
 const inputFocusStyle: React.CSSProperties = {
-  borderColor: "#6366f1",
-  background: "#ffffff",
-  boxShadow: "0 0 0 3px rgba(99, 102, 241, 0.1)",
+  borderColor: cores.acento,
+  background: cores.card,
+  boxShadow: `0 0 0 3px ${cores.acentoSuave}`,
 };
 
 const toggleSenha: React.CSSProperties = {
   position: "absolute",
-  right: "12px",
+  right: "10px",
   background: "none",
   border: "none",
-  fontSize: "1.1rem",
+  display: "flex",
   cursor: "pointer",
   padding: "4px",
-  color: "#94a3b8",
 };
 
 const opcoes: React.CSSProperties = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  marginTop: "4px",
+  marginTop: "-4px",
 };
 
 const checkboxLabel: React.CSSProperties = {
@@ -282,63 +286,45 @@ const checkboxLabel: React.CSSProperties = {
   alignItems: "center",
   gap: "8px",
   fontSize: "0.85rem",
-  color: "#475569",
+  color: cores.textoSuave,
   cursor: "pointer",
 };
 
 const checkbox: React.CSSProperties = {
-  width: "16px",
-  height: "16px",
-  accentColor: "#6366f1",
+  width: "15px",
+  height: "15px",
+  accentColor: cores.acento,
   cursor: "pointer",
 };
 
 const esqueceuSenha: React.CSSProperties = {
   fontSize: "0.85rem",
-  color: "#6366f1",
+  color: cores.acento,
   textDecoration: "none",
-  fontWeight: 500,
+  fontWeight: 600,
 };
 
 const btnEntrar: React.CSSProperties = {
-  background: "#6366f1",
-  color: "#fff",
+  background: cores.primaria,
+  color: cores.card,
   border: "none",
-  borderRadius: "10px",
-  padding: "14px",
-  fontWeight: 700,
-  fontSize: "1rem",
-  cursor: "pointer",
-  transition: "all 0.2s",
-  marginTop: "8px",
+  borderRadius: "8px",
+  padding: "13px",
+  fontWeight: 600,
+  fontSize: "0.95rem",
+  transition: "background 0.15s",
+  marginTop: "4px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   gap: "8px",
 };
 
-const spinner: React.CSSProperties = {
-  display: "inline-block",
-  width: "18px",
-  height: "18px",
-  border: "2px solid rgba(255,255,255,0.3)",
-  borderTop: "2px solid #ffffff",
-  borderRadius: "50%",
-  animation: "spin 0.6s linear infinite",
-};
-
 const footer: React.CSSProperties = {
   marginTop: "32px",
   textAlign: "center",
-  borderTop: "1px solid #e2e8f0",
-  paddingTop: "24px",
-};
-
-const footerText: React.CSSProperties = {
-  display: "block",
-  fontSize: "0.75rem",
-  color: "#94a3b8",
-  marginBottom: "12px",
+  borderTop: `1px solid ${cores.border}`,
+  paddingTop: "20px",
 };
 
 const footerLinks: React.CSSProperties = {
@@ -349,10 +335,10 @@ const footerLinks: React.CSSProperties = {
 };
 
 const footerLink: React.CSSProperties = {
-  color: "#64748b",
+  color: cores.textoSuave,
   textDecoration: "none",
 };
 
 const footerSeparator: React.CSSProperties = {
-  color: "#cbd5e1",
+  color: cores.border,
 };

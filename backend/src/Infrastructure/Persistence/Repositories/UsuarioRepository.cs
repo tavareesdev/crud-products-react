@@ -15,6 +15,13 @@ public sealed class UsuarioRepository(AppDbContext context) : IUsuarioRepository
     public async Task<IEnumerable<Usuario>> ListarAsync(CancellationToken ct = default)
         => await _usuarios.ToListAsync(ct);
 
+    public async Task<Usuario?> ObterPorEmailAsync(string email, CancellationToken ct = default)
+    {
+        var emailUp = email.Trim().ToUpperInvariant();
+        return await _usuarios.FirstOrDefaultAsync(
+            u => EF.Functions.Like(u.Email, emailUp), ct);
+    }
+
     public async Task AdicionarAsync(Usuario usuario, CancellationToken ct = default)
         => await _usuarios.AddAsync(usuario, ct);
 

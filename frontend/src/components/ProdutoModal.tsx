@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { AtualizarProdutoDto, CriarProdutoDto, Produto } from "../types/produto";
+import { cores } from "../styles/theme";
 
 interface Props {
   produto?: Produto | null;
@@ -46,8 +47,8 @@ export function ProdutoModal({ produto, onSalvar, onFechar }: Props) {
     <div style={overlay}>
       <div style={modal}>
         <div style={modalHeader}>
-          <h2 style={{ margin:0, fontSize:"1.2rem", fontWeight:700 }}>
-            {editando ? "✏️ Editar Produto" : "➕ Novo Produto"}
+          <h2 style={{ margin:0, fontSize:"1.15rem", fontWeight:700, color: cores.texto }}>
+            {editando ? "Editar produto" : "Novo produto"}
           </h2>
           <button onClick={onFechar} style={btnClose}>✕</button>
         </div>
@@ -121,10 +122,10 @@ const inp: React.CSSProperties = {
   fontSize:"0.9rem", outline:"none", fontFamily:"inherit"
 };
 const btnClose: React.CSSProperties = {
-  background:"none", border:"none", fontSize:"1.2rem", cursor:"pointer", color:"#94a3b8", padding:"4px 8px"
+  background:"none", border:"none", fontSize:"1.2rem", cursor:"pointer", color: cores.textoFraco, padding:"4px 8px", lineHeight: 1
 };
 const btnPri: React.CSSProperties = {
-  background:"#6366f1", color:"#fff", border:"none",
+  background: cores.primaria, color:"#fff", border:"none",
   borderRadius:"8px", padding:"10px 22px", fontWeight:600, fontSize:"0.9rem", cursor:"pointer"
 };
 const btnSec: React.CSSProperties = {

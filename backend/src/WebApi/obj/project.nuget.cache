@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cxz1yNvfAlI=",
+  "dgSpecHash": "wldCFt+QxYg=",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+  "projectFilePath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -48,9 +48,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "WebApi depends on Microsoft.EntityFrameworkCore.Design (>= 10.0.0-preview.1.25080.1) but Microsoft.EntityFrameworkCore.Design 10.0.0-preview.1.25080.1 was not found. Microsoft.EntityFrameworkCore.Design 10.0.0-preview.1.25081.1 was resolved instead.",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "filePath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.EntityFrameworkCore.Design",
       "targetGraphs": [
         "net10.0"
@@ -60,9 +60,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "WebApi depends on Microsoft.EntityFrameworkCore.Sqlite (>= 10.0.0-preview.1.25080.1) but Microsoft.EntityFrameworkCore.Sqlite 10.0.0-preview.1.25080.1 was not found. Microsoft.EntityFrameworkCore.Sqlite 10.0.0-preview.1.25081.1 was resolved instead.",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "filePath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.EntityFrameworkCore.Sqlite",
       "targetGraphs": [
         "net10.0"
@@ -72,9 +72,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "WebApi depends on Microsoft.EntityFrameworkCore.Tools (>= 10.0.0-preview.1.25080.1) but Microsoft.EntityFrameworkCore.Tools 10.0.0-preview.1.25080.1 was not found. Microsoft.EntityFrameworkCore.Tools 10.0.0-preview.1.25081.1 was resolved instead.",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "filePath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.EntityFrameworkCore.Tools",
       "targetGraphs": [
         "net10.0"
@@ -84,9 +84,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.10 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "filePath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
       "targetGraphs": [
         "net10.0"

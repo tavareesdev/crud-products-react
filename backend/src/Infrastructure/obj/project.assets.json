@@ -555,10 +555,10 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.1.25080.5": {
+      "Microsoft.Extensions.Configuration.Abstractions/10.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.0-preview.1.25080.5"
+          "Microsoft.Extensions.Primitives": "10.0.0"
         },
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
@@ -685,7 +685,7 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
-      "Microsoft.Extensions.Primitives/10.0.0-preview.1.25080.5": {
+      "Microsoft.Extensions.Primitives/10.0.0": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
@@ -2223,15 +2223,14 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.1.25080.5": {
-      "sha512": "tsw7Qt0TnaDIllzOG+YgEzjFm5TbSwbUVAO0Px4zYCUkWbaKAYbccHwMRtaWYvoEFXGFz3+B7DGHSs/txRxe6g==",
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0": {
+      "sha512": "d2kDKnCsJvY7mBVhcjPSp9BkJk48DsaHPg5u+Oy4f8XaOqnEedRy/USyvnpHL92wpJ6DrTPy7htppUUzskbCXQ==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/10.0.0-preview.1.25080.5",
+      "path": "microsoft.extensions.configuration.abstractions/10.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Configuration.Abstractions.targets",
@@ -2248,7 +2247,7 @@
         "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.10.0.0-preview.1.25080.5.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2499,15 +2498,14 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/10.0.0-preview.1.25080.5": {
-      "sha512": "vuci/NLr6n/4Vxig68IwDxu2J6OMv6k9d8PXi+QHR2z7EZciBxL1R5Ri3kdMUZxZfD38M/AcUWllGcynSgPJSg==",
+    "Microsoft.Extensions.Primitives/10.0.0": {
+      "sha512": "inRnbpCS0nwO/RuoZIAqxQUuyjaknOOnCEZB55KSMMjRhl0RQDttSmLSGsUJN3RQ3ocf5NDLFd2mOQViHqMK5w==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/10.0.0-preview.1.25080.5",
+      "path": "microsoft.extensions.primitives/10.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Primitives.targets",
@@ -2524,7 +2522,7 @@
         "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.10.0.0-preview.1.25080.5.nupkg.sha512",
+        "microsoft.extensions.primitives.10.0.0.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2835,7 +2833,8 @@
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.0-preview.1.25081.1",
       "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.0-preview.1.25081.1",
-      "Microsoft.EntityFrameworkCore.Tools >= 10.0.0-preview.1.25081.1"
+      "Microsoft.EntityFrameworkCore.Tools >= 10.0.0-preview.1.25081.1",
+      "Microsoft.Extensions.Configuration.Abstractions >= 10.0.0"
     ]
   },
   "packageFolders": {
@@ -2845,11 +2844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\CrudProdutos\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\Projetos\\crud-products-react\\backend\\src\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Infrastructure\\obj\\",
+      "outputPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2872,11 +2871,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj": {
-              "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj"
+            "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj": {
+              "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj"
             },
-            "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj"
+            "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj"
             }
           }
         }
@@ -2912,6 +2911,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.0-preview.1.25081.1, )"
+          },
+          "Microsoft.Extensions.Configuration.Abstractions": {
+            "target": "Package",
+            "version": "[10.0.0, )"
           }
         },
         "imports": [

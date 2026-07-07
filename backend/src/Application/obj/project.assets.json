@@ -70,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\obj\\",
+      "outputPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Domain\\Domain.csproj"
+            "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Domain\\Domain.csproj"
             }
           }
         }

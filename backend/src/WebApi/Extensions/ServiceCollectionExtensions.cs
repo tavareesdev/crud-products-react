@@ -1,8 +1,10 @@
+using Application.UseCases.Auth;
 using Application.UseCases.Produtos;
 using Application.UseCases.Usuarios;
 using Domain.Interfaces;
 using Infrastructure.Persistence.Context;
 using Infrastructure.Persistence.Repositories;
+using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Extensions;
@@ -17,6 +19,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IProdutoRepository, ProdutoRepository>();
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddSingleton<ITokenService, TokenService>();
         return services;
     }
 
@@ -33,6 +36,9 @@ public static class ServiceCollectionExtensions
         services.AddScoped<AtualizarUsuarioUseCase>();
         services.AddScoped<RemoverUsuarioUseCase>();
         services.AddScoped<AtualizarSenhaUseCase>();
+        services.AddScoped<LoginUseCase>();
+        services.AddScoped<EsqueciSenhaUseCase>();
+        services.AddScoped<RedefinirSenhaUseCase>();
         return services;
     }
 }

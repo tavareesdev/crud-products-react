@@ -1,8 +1,11 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Layout } from "../components/Layout";
 import { ProdutoModal } from "../components/ProdutoModal";
 import { ProdutoTabela } from "../components/ProdutoTabela";
+import { IconPlus, IconSearch } from "../components/icons";
 import { useProdutos } from "../hooks/useProdutos";
+import { cores } from "../styles/theme";
 import type { Produto } from "../types/produto";
 
 export function HomePage() {
@@ -30,22 +33,25 @@ export function HomePage() {
   const emFalta = produtos.filter(p => p.estoque < 5).length;
 
   return (
-    <div style={page}>
+    <Layout>
       <Toaster position="top-right" />
       <header style={header}>
         <div>
-          <h1 style={titulo}>📦 Gestão de Produtos</h1>
-          <p style={subtitulo}>Clean Architecture · DDD · .NET 8 + React + SQLite</p>
+          <h1 style={titulo}>Gestão de Produtos</h1>
+          <p style={subtitulo}>Clean Architecture · DDD · .NET + React + SQLite</p>
         </div>
-        <button onClick={abrirNovo} style={btnNovo}>+ Novo Produto</button>
+        <button onClick={abrirNovo} style={btnNovo}>
+          <IconPlus size={16} />
+          Novo produto
+        </button>
       </header>
 
       <div style={cards}>
         {[
-          { label:"Total de Produtos", val: String(produtos.length), cor:"#0f172a" },
-          { label:"Estoque Baixo (< 5)", val: String(emFalta), cor: emFalta > 0?"#dc2626":"#059669" },
-          { label:"Valor em Estoque", val: totalValor.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}), cor:"#0f172a" },
-          { label:"Categorias", val: String(new Set(produtos.map(p => p.categoria)).size), cor:"#0f172a" },
+          { label: "Total de produtos", val: String(produtos.length), cor: cores.texto },
+          { label: "Estoque baixo (< 5)", val: String(emFalta), cor: emFalta > 0 ? cores.erro : cores.sucesso },
+          { label: "Valor em estoque", val: totalValor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }), cor: cores.texto },
+          { label: "Categorias", val: String(new Set(produtos.map(p => p.categoria)).size), cor: cores.texto },
         ].map(c => (
           <div key={c.label} style={card}>
             <div style={cardLabel}>{c.label}</div>
@@ -55,15 +61,22 @@ export function HomePage() {
       </div>
 
       <div style={toolbar}>
-        <input style={searchInp} value={busca} onChange={e => setBusca(e.target.value)}
-          placeholder="🔍  Buscar por nome, SKU ou categoria..." />
-        <span style={{ color:"#94a3b8", fontSize:"0.85rem", whiteSpace:"nowrap" }}>
+        <div style={searchWrapper}>
+          <span style={searchIcon}><IconSearch size={16} color={cores.textoFraco} /></span>
+          <input
+            style={searchInp}
+            value={busca}
+            onChange={e => setBusca(e.target.value)}
+            placeholder="Buscar por nome, SKU ou categoria..."
+          />
+        </div>
+        <span style={{ color: cores.textoFraco, fontSize: "0.85rem", whiteSpace: "nowrap" }}>
           {produtosFiltrados.length} produto{produtosFiltrados.length !== 1 ? "s" : ""}
         </span>
       </div>
 
       {loading ? (
-        <div style={{ textAlign:"center", padding:"60px", color:"#94a3b8" }}>⏳ Carregando...</div>
+        <div style={{ textAlign: "center", padding: "60px", color: cores.textoFraco }}>Carregando...</div>
       ) : (
         <ProdutoTabela
           produtos={produtosFiltrados}
@@ -75,44 +88,43 @@ export function HomePage() {
       {modalAberto && (
         <ProdutoModal produto={produtoEditando} onSalvar={onSalvar} onFechar={fechar} />
       )}
-    </div>
+    </Layout>
   );
 }
 
-const page: React.CSSProperties = {
-  minHeight:"100vh", background:"#f8fafc",
-  padding:"32px", maxWidth:"1200px", margin:"0 auto"
-};
 const header: React.CSSProperties = {
-  display:"flex", justifyContent:"space-between", alignItems:"flex-start",
-  marginBottom:"28px", flexWrap:"wrap", gap:"16px"
+  display: "flex", justifyContent: "space-between", alignItems: "flex-start",
+  marginBottom: "28px", flexWrap: "wrap", gap: "16px"
 };
-const titulo: React.CSSProperties = { margin:0, fontSize:"1.75rem", fontWeight:800, color:"#0f172a" };
-const subtitulo: React.CSSProperties = { margin:"4px 0 0", color:"#64748b", fontSize:"0.85rem" };
+const titulo: React.CSSProperties = { margin: 0, fontSize: "1.6rem", fontWeight: 700, color: cores.texto, letterSpacing: "-0.01em" };
+const subtitulo: React.CSSProperties = { margin: "4px 0 0", color: cores.textoSuave, fontSize: "0.85rem" };
 const btnNovo: React.CSSProperties = {
-  background:"#6366f1", color:"#fff", border:"none",
-  borderRadius:"10px", padding:"12px 24px", fontWeight:700,
-  fontSize:"0.95rem", cursor:"pointer", whiteSpace:"nowrap"
+  background: cores.primaria, color: cores.card, border: "none",
+  borderRadius: "8px", padding: "11px 20px", fontWeight: 600,
+  fontSize: "0.9rem", cursor: "pointer", whiteSpace: "nowrap",
+  display: "flex", alignItems: "center", gap: "8px"
 };
 const cards: React.CSSProperties = {
-  display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(180px, 1fr))",
-  gap:"16px", marginBottom:"24px"
+  display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+  gap: "16px", marginBottom: "24px"
 };
 const card: React.CSSProperties = {
-  background:"#fff", borderRadius:"12px", padding:"20px",
-  boxShadow:"0 1px 4px rgba(0,0,0,0.06)", border:"1px solid #e2e8f0"
+  background: cores.card, borderRadius: "10px", padding: "20px",
+  boxShadow: "0 1px 4px rgba(15,23,42,0.05)", border: `1px solid ${cores.border}`
 };
 const cardLabel: React.CSSProperties = {
-  fontSize:"0.78rem", color:"#94a3b8", fontWeight:600, textTransform:"uppercase"
+  fontSize: "0.76rem", color: cores.textoFraco, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em"
 };
 const cardVal: React.CSSProperties = {
-  fontSize:"1.8rem", fontWeight:800, color:"#0f172a", marginTop:"4px"
+  fontSize: "1.7rem", fontWeight: 700, color: cores.texto, marginTop: "4px"
 };
 const toolbar: React.CSSProperties = {
-  display:"flex", gap:"16px", alignItems:"center", marginBottom:"16px"
+  display: "flex", gap: "16px", alignItems: "center", marginBottom: "16px"
 };
+const searchWrapper: React.CSSProperties = { position: "relative", flex: 1, display: "flex", alignItems: "center" };
+const searchIcon: React.CSSProperties = { position: "absolute", left: "14px", display: "flex" };
 const searchInp: React.CSSProperties = {
-  flex:1, padding:"10px 16px", borderRadius:"10px",
-  border:"1.5px solid #e2e8f0", fontSize:"0.9rem",
-  background:"#fff", outline:"none"
+  width: "100%", padding: "10px 16px 10px 38px", borderRadius: "8px",
+  border: `1.5px solid ${cores.border}`, fontSize: "0.9rem",
+  background: cores.card, outline: "none", fontFamily: "inherit"
 };

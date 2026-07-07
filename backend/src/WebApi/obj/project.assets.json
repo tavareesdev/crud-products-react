@@ -2767,11 +2767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\WebApi.csproj",
+      "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\Gabriel Tavares\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\WebApi\\obj\\",
+      "outputPath": "D:\\Projetos\\crud-products-react\\backend\\src\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2794,11 +2794,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj": {
-              "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Application\\Application.csproj"
+            "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj": {
+              "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Application\\Application.csproj"
             },
-            "D:\\Projetos\\CrudProdutos\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\Projetos\\CrudProdutos\\backend\\src\\Infrastructure\\Infrastructure.csproj"
+            "D:\\Projetos\\crud-products-react\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\Projetos\\crud-products-react\\backend\\src\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

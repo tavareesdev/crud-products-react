@@ -11,7 +11,8 @@
           "Application": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "10.0.0-preview.1.25081.1",
-          "Microsoft.EntityFrameworkCore.Sqlite": "10.0.0-preview.1.25081.1"
+          "Microsoft.EntityFrameworkCore.Sqlite": "10.0.0-preview.1.25081.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -358,7 +359,7 @@
           "Microsoft.CodeAnalysis.Workspaces.MSBuild": "4.8.0",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.0-preview.1.25081.1",
           "Microsoft.Extensions.Caching.Memory": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.1.25080.5",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0",
           "Microsoft.Extensions.DependencyModel": "10.0.0-preview.1.25080.5",
           "Microsoft.Extensions.Logging": "10.0.0-preview.1.25080.5",
           "Mono.TextTemplating": "3.0.0"
@@ -374,7 +375,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.0-preview.1.25081.1",
           "Microsoft.Extensions.Caching.Memory": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.1.25080.5",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0",
           "Microsoft.Extensions.Logging": "10.0.0-preview.1.25080.5"
         },
         "runtime": {
@@ -388,7 +389,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Sqlite.Core": "10.0.0-preview.1.25081.1",
           "Microsoft.Extensions.Caching.Memory": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.1.25080.5",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0",
           "Microsoft.Extensions.DependencyModel": "10.0.0-preview.1.25080.5",
           "Microsoft.Extensions.Logging": "10.0.0-preview.1.25080.5",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.10",
@@ -400,7 +401,7 @@
           "Microsoft.Data.Sqlite.Core": "10.0.0-preview.1.25081.1",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.0-preview.1.25081.1",
           "Microsoft.Extensions.Caching.Memory": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.1.25080.5",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0",
           "Microsoft.Extensions.DependencyModel": "10.0.0-preview.1.25080.5",
           "Microsoft.Extensions.Logging": "10.0.0-preview.1.25080.5",
           "SQLitePCLRaw.core": "2.1.10"
@@ -414,7 +415,7 @@
       },
       "Microsoft.Extensions.Caching.Abstractions/10.0.0-preview.1.25080.5": {
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.0-preview.1.25080.5"
+          "Microsoft.Extensions.Primitives": "10.0.0"
         },
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
@@ -429,7 +430,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.1.25080.5",
           "Microsoft.Extensions.Logging.Abstractions": "10.0.0-preview.1.25080.5",
           "Microsoft.Extensions.Options": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Primitives": "10.0.0-preview.1.25080.5"
+          "Microsoft.Extensions.Primitives": "10.0.0"
         },
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
@@ -438,14 +439,14 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.1.25080.5": {
+      "Microsoft.Extensions.Configuration.Abstractions/10.0.0": {
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.0-preview.1.25080.5"
+          "Microsoft.Extensions.Primitives": "10.0.0"
         },
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.8005"
+            "fileVersion": "10.0.25.52411"
           }
         }
       },
@@ -503,7 +504,7 @@
       "Microsoft.Extensions.Options/10.0.0-preview.1.25080.5": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.1.25080.5",
-          "Microsoft.Extensions.Primitives": "10.0.0-preview.1.25080.5"
+          "Microsoft.Extensions.Primitives": "10.0.0"
         },
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
@@ -512,11 +513,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Primitives/10.0.0-preview.1.25080.5": {
+      "Microsoft.Extensions.Primitives/10.0.0": {
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.8005"
+            "fileVersion": "10.0.25.52411"
           }
         }
       },
@@ -895,12 +896,12 @@
       "path": "microsoft.extensions.caching.memory/10.0.0-preview.1.25080.5",
       "hashPath": "microsoft.extensions.caching.memory.10.0.0-preview.1.25080.5.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.1.25080.5": {
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tsw7Qt0TnaDIllzOG+YgEzjFm5TbSwbUVAO0Px4zYCUkWbaKAYbccHwMRtaWYvoEFXGFz3+B7DGHSs/txRxe6g==",
-      "path": "microsoft.extensions.configuration.abstractions/10.0.0-preview.1.25080.5",
-      "hashPath": "microsoft.extensions.configuration.abstractions.10.0.0-preview.1.25080.5.nupkg.sha512"
+      "sha512": "sha512-d2kDKnCsJvY7mBVhcjPSp9BkJk48DsaHPg5u+Oy4f8XaOqnEedRy/USyvnpHL92wpJ6DrTPy7htppUUzskbCXQ==",
+      "path": "microsoft.extensions.configuration.abstractions/10.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/10.0.0-preview.1.25080.5": {
       "type": "package",
@@ -944,12 +945,12 @@
       "path": "microsoft.extensions.options/10.0.0-preview.1.25080.5",
       "hashPath": "microsoft.extensions.options.10.0.0-preview.1.25080.5.nupkg.sha512"
     },
-    "Microsoft.Extensions.Primitives/10.0.0-preview.1.25080.5": {
+    "Microsoft.Extensions.Primitives/10.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vuci/NLr6n/4Vxig68IwDxu2J6OMv6k9d8PXi+QHR2z7EZciBxL1R5Ri3kdMUZxZfD38M/AcUWllGcynSgPJSg==",
-      "path": "microsoft.extensions.primitives/10.0.0-preview.1.25080.5",
-      "hashPath": "microsoft.extensions.primitives.10.0.0-preview.1.25080.5.nupkg.sha512"
+      "sha512": "sha512-inRnbpCS0nwO/RuoZIAqxQUuyjaknOOnCEZB55KSMMjRhl0RQDttSmLSGsUJN3RQ3ocf5NDLFd2mOQViHqMK5w==",
+      "path": "microsoft.extensions.primitives/10.0.0",
+      "hashPath": "microsoft.extensions.primitives.10.0.0.nupkg.sha512"
     },
     "Mono.TextTemplating/3.0.0": {
       "type": "package",

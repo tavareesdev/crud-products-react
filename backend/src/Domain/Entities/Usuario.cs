@@ -108,6 +108,24 @@ public sealed class Usuario : EntidadeBase
         return BCrypt.Net.BCrypt.Verify(senha, SenhaHash);
     }
 
+    /// <summary>
+    /// Redefine a senha sem exigir a senha atual (usado no fluxo de "esqueci minha senha",
+    /// após a validação do token de recuperação).
+    /// </summary>
+    public Result<Usuario> RedefinirSenha(string novaSenha)
+    {
+        var senhaValidation = ValidarSenha(novaSenha);
+        if (!senhaValidation.Sucesso)
+            return Result<Usuario>.Failure(senhaValidation.Erro);
+
+        SenhaHash = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+        AtualizadoEm = DateTime.UtcNow;
+
+        AdicionarEvento(new SenhaAlteradaEvent(Id, DateTime.UtcNow));
+
+        return Result<Usuario>.Success(this);
+    }
+
     private static Result<string> ValidarSenha(string senha)
     {
         if (string.IsNullOrWhiteSpace(senha))
