@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HomePage } from "./pages/HomePage";
+import App from './App';
 
 const style = document.createElement("style");
 style.textContent = `
@@ -12,5 +12,7 @@ style.textContent = `
 document.head.appendChild(style);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode><HomePage /></React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
